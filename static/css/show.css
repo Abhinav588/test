@@ -1,0 +1,26 @@
+body{
+    background-color: azure;
+}
+h2{
+    margin-top: 3%;
+    margin-left: 42%;
+    text-decoration: underline;
+    color: rgb(31, 99, 33);
+}
+table{
+    border-collapse: collapse;
+    border-color: blueviolet;
+    border-spacing: 3px;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+tr,th,td{
+    border: 2px solid;
+    padding: 0 4px;
+    border-color: blueviolet;
+    padding:5px 20px;
+}
+#home{
+    float: right;
+    margin-right: 5%;
+}

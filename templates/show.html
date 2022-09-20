@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/show.css' %}">
+    
+</head>
+<body>
+    <h2>Student Details</h2>
+<a href="{% url 'showpage' %}" id="home">To Add Student</a>
+
+    <table border="2px">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>PH Number</th>
+            <th>E-Mail</th>
+            <th>Admission No. and Date</th>
+            <th>Department</th>
+            <th>Father's Name</th>
+            <th>PH number</th>
+            <th>Mother's Name</th>
+            <th>PH number</th>
+            <th>Address</th>
+            <th>Student Photo</th>
+            <th>Action....</th>
+        </tr>
+        {% for line in show %}
+
+        <tr>
+            <td>{{ line.id }}</td>
+            <td>{{ line.First_Name }}</td>
+            <td>{{ line.Last_Name }}</td>
+            <td>{{ line.Gender }}</td>
+            <td>{{ line.Date_of_Birth }}</td>
+            <td>{{ line.Mobile_Number }}</td>
+            <td>{{ line.E_Mail }}</td>
+            <td>{{ line.Adm_Num_and_Date }}</td>
+            <td>{{ line.deptmt }}</td>
+            <td>{{ line.Father_name }}</td>
+            <td>{{ line.Father_mob }}</td>
+            <td>{{ line.Mother_name }}</td>
+            <td>{{ line.Mother_mob }}</td>
+            <td>{{ line.Address }}</td>
+            <td>
+            {% if line.User_Photo %}
+                <img src="{{line.User_Photo.url}}" height="150vw" width="150vw"><br>
+            {% else %}
+                <img src="{% static 'img/user.png' %}" height="150vw" width="150vw"><br>
+            {% endif %}
+            </td>
+            <td><a href="{% url 'editpage' line.id %}">Edit</a><br>
+            <a href="{% url 'delete' line.id %}" >Delete</a></td>
+        {% endfor %}                    
+        </tr>
+    </table>
+</body>
+</html>

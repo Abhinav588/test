@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto -Learn Well (Institution of Science and Commerce)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/det.css' %}">
+</head>
+<body>
+<div class="container-fluid">
+    <br>
+    <h3 class="center">Add Student</h3>
+
+<form method="post" action="add_student" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+    <legend>General Details</legend>
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="Sfname">
+    <label for="lname" class="left">Last Name</label>
+    <input type="text" name="Slname" id="lname"><br><br>
+    <label for="gend">Gender:</label>
+    <select name="gender" id="gend">
+        <option value="defaut" hidden>Select any</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="others">Others</option>  
+    </select> 
+    <label for="dob" class="le1">DOB</label>
+    <input type="date" name="DOB" id="dob"><br><br>
+    <label for="smob">Ph number:</label>
+    <input type="number" name="stnum" id="smob"><br><br>
+    <label for="email">E_mail ID:</label>
+    <input type="email" placeholder="absdfhadfad@gmail.com" name="Email" id="email"><br><br>
+    <label for="admNum">Admission <br>No./Date:</label>
+    <input type="text" placeholder="0000 - DD/MM/YYYY" name="AdmNum" id="admNum"><br><br>
+    <label for="dept">Department:</label>
+    <input type="text" name="Department" id="dept"><br><br>
+    </fieldset><br><br>
+    <fieldset class="btm">
+    <legend class="len">Personal Details</legend>
+    <label for="fatname">Father's Name:</label>
+    <input type="text" name="Fathname" id="fatname">
+    <label for="fatMnum" class="le2">PH No.</label>
+    <input type="number" name="FathMnum" id="fatMnum"><br><br>
+    <label for="motname">Mother's Name:</label>
+    <input type="text" name="mothname" id="motname">
+    <label for="motMnum" class="le2">PH No.</label>
+    <input type="number" name="MothMnum" id="motMnum"><br><br>
+    <label for="adds">Address:</label><br>
+    <textarea name="addrs" id="adds" cols="30" rows="4" ></textarea>
+    <label for="s_img">Upload your Photo</label>
+    <input type="file" id="s_img" name="st_img" accept="image/*">
+    </fieldset><br>
+    <button type="submit">Submit</button>
+</form>
+<a href="{% url 'showsaved' %}" class="shw">Show datails in Database</a>
+
+</div>
+</body>
+</html>
